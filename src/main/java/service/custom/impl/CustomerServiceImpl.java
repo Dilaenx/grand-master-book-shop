@@ -22,6 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getAll() throws SQLException {
+        System.out.println("ser :repository.getAll()");
         return repository.getAll();
 
     }
@@ -47,7 +48,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException {
-        repository.SaveCustomerReward(customerReward, CustomerID);
+    public boolean SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException {
+        return repository.SaveCustomerReward(customerReward, CustomerID);
     }
 }

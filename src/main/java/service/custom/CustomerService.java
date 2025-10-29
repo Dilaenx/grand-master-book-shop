@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface CustomerService extends CrudService<Customer,String> {
 
-    void SaveCustomerReward(Double customerReward,String customerId) throws SQLException;
+    boolean SaveCustomerReward(Double customerReward,String customerId) throws SQLException;
 }

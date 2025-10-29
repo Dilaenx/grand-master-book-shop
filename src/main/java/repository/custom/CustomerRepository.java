@@ -6,5 +6,5 @@ import repository.CrudRepository;
 import java.sql.SQLException;
 
 public interface CustomerRepository extends CrudRepository<Customer,String>{
-    void SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException;
+    boolean SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException;
 }

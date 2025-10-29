@@ -391,6 +391,56 @@ public class OderFormController implements Initializable {
 
     @FXML
     void btnPlaceOrdrOnAction(ActionEvent event) {
+        boolean customerAdd ;
+        boolean saveCustomerReward = false;
+
+        if(tblOder.getItems().isEmpty()){
+            new Alert(Alert.AlertType.WARNING, "Select Items").show();
+            return;
+        }
+       // Integer oderId =Integer.parseInt(lblOderId.getText());
+
+        System.out.println(cartTMSList);
+        Double netValue=Double.parseDouble(lblNetTotal.getText());
+        for(CartTM cartTM:cartTMSList){
+            netTotal+=cartTM.getTotal();}
+
+        String placeOderDate=lblDate.getText();
+        String placeOderTime=lblTime.getText();
+        System.out.println(placeOderDate+"and"+placeOderTime);
+        try {
+            customerAdd=orderService.saveOderDetails(
+                    new OderDetails(
+                           lblOderId.getText(),
+                           (cmbCustomerID.getValue()==null)? "Guest":cmbCustomerID.getValue(),
+                           cartTMSList,
+                           lblDate.getText(),
+                           lblTime.getText()
+                    )
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if(customerAdd){
+            Double CustomerReward=(netValue*0.1)+Double.parseDouble(btnReward.getText());
+            if(cmbCustomerID.getValue()!=null) {
+                try {
+                    saveCustomerReward= customerService.SaveCustomerReward(CustomerReward,cmbCustomerID.getValue());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            clear();
+            cartTMSList.clear();
+            loadTable();
+
+
+        }
+        if(saveCustomerReward){
+            new Alert(Alert.AlertType.CONFIRMATION, "Order successfully!").show();
+            setOderId();
+            System.out.println("Oder Complete ....!");
+        }
 
         if(tblOder.getItems().isEmpty()){
             new Alert(Alert.AlertType.WARNING, "Select Items").show();

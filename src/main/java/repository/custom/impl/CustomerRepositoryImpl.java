@@ -92,8 +92,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public void SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException {
-        CrudUtil.execute("UPDATE customer SET reward = ? WHERE id = ?",
+    public boolean SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException {
+        return CrudUtil.execute("UPDATE customer SET reward = ? WHERE id = ?",
                 customerReward,
                 CustomerID
         );
