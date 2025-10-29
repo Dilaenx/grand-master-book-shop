@@ -8,104 +8,95 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="519.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OderFormController">
+
     <children>
+        <!-- Right side background -->
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="540.0" layoutX="175.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="619.0">
             <fill>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>
-                        <Stop>
-                            <color>
-                                <Color red="0.7647058963775635" green="0.9490196108818054" blue="1.0" />
-                            </color>
-                        </Stop>
-                        <Stop offset="0.006729475100942127">
-                            <color>
-                                <Color red="0.7647058963775635" green="0.9490196108818054" blue="1.0" />
-                            </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                            <color>
-                                <Color red="0.3960784375667572" green="0.7764706015586853" blue="0.9764705896377563" />
-                            </color>
-                        </Stop>
+                        <Stop color="#c3f2ff" offset="0.0" />
+                        <Stop color="#65c6f9" offset="1.0" />
                     </stops>
                 </LinearGradient>
             </fill>
         </Rectangle>
+
+        <!-- Left panel -->
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="540.0" layoutX="-5.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="205.0">
             <fill>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>
-                        <Stop>
-                            <color>
-                                <Color green="0.0042105261236429214" blue="0.2526315748691559" />
-                            </color>
-                        </Stop>
-                        <Stop offset="0.006729475100942127">
-                            <color>
-                                <Color green="0.003921568859368563" blue="0.250980406999588" />
-                            </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                            <color>
-                                <Color red="0.15294118225574493" green="0.34117648005485535" blue="0.4745098054409027" />
-                            </color>
-                        </Stop>
+                        <Stop color="#001940" offset="0.0" />
+                        <Stop color="#275779" offset="1.0" />
                     </stops>
                 </LinearGradient>
             </fill>
         </Rectangle>
+
+        <!-- Left side menu -->
         <JFXButton layoutX="19.0" layoutY="83.0" onAction="#btnCustomerManagement" text="CUSTOMER MANAGEMENT" textAlignment="CENTER" textFill="WHITE" />
         <JFXButton layoutX="19.0" layoutY="121.0" onAction="#btnItemManagementForm" text="ITEM MANAGEMENT" textFill="WHITE" />
-        <JFXButton layoutX="19.0" layoutY="161.0" onAction="#btnOderDetailsOnAction" text="PURCHASE ODER" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="161.0" onAction="#btnOderDetailsOnAction" text="PURCHASE ORDER" textFill="WHITE" />
         <JFXButton layoutX="19.0" layoutY="200.0" onAction="#btnAddOrderOnAction" text="CREATE ORDER" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></JFXButton>
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </JFXButton>
         <JFXButton layoutX="56.0" layoutY="490.0" text="ABOUT" textFill="WHITE" />
+
+        <!-- Table -->
         <TableView fx:id="tblOder" layoutX="220.0" layoutY="193.0" prefHeight="302.0" prefWidth="554.0">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="107.199951171875" text="Oder Id" />
-                <TableColumn fx:id="colName" prefWidth="136.00006103515625" text="Item Name" />
-                <TableColumn fx:id="colQty" prefWidth="85.60000610351562" text="Qty" />
-                <TableColumn fx:id="colUnitPrice" minWidth="0.0" prefWidth="104.800048828125" text="Price" />
-            <TableColumn fx:id="colTotal" minWidth="0.0" prefWidth="120.0" text="Total" />
+                <TableColumn fx:id="colId" prefWidth="100.0" text="Order Id" />
+                <TableColumn fx:id="colName" prefWidth="130.0" text="Item Name" />
+                <TableColumn fx:id="colQty" prefWidth="80.0" text="Qty" />
+                <TableColumn fx:id="colUnitPrice" prefWidth="110.4000244140625" text="Price" />
+                <TableColumn fx:id="colTotal" prefWidth="131.99997558593748" text="Total" />
             </columns>
         </TableView>
+
+        <!-- Top labels and fields -->
         <Label fx:id="lblCM" layoutX="387.0" layoutY="11.0" text="CREATE ORDER FORM">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>
         </Label>
-      <ComboBox fx:id="cmbCustomerID" layoutX="220.0" layoutY="71.0" prefWidth="150.0" />
-      <Label fx:id="lblCustomerName" layoutX="410.0" layoutY="75.0" text="Customer" />
-      <Label fx:id="lblCustomerPhoneNumber" layoutX="487.0" layoutY="74.0" text="Phone Number" />
-      <ComboBox fx:id="cmbItemId" layoutX="220.0" layoutY="121.0" prefWidth="150.0" />
-      <Label fx:id="lblItemName" layoutX="410.0" layoutY="125.0" text="Item" />
-      <Label fx:id="lblStock" layoutX="582.0" layoutY="124.0" text="Stock" />
-      <Label fx:id="lblUnityPrice" layoutX="488.0" layoutY="125.0" text="Unity Price" />
-      <JFXTextField fx:id="txtQtyOnHand" layoutX="656.0" layoutY="120.0" prefHeight="26.0" prefWidth="81.0" promptText="Qty On Hand" />
-      <JFXButton fx:id="btnAdd" layoutX="547.0" layoutY="162.0" onAction="#btnAddToCartOnAction" text="Add to Cart" />
-      <JFXButton fx:id="btnClear" layoutX="713.0" layoutY="159.0" onAction="#btnClearOnAction" text="Clear" />
-      <JFXButton fx:id="btnDelete" layoutX="645.0" layoutY="161.0" onAction="#btnDeleteOnAction" text="Delete" />
-      <Label fx:id="lblCM1" layoutX="223.0" layoutY="504.0" text="Net Total:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblCM11" layoutX="295.0" layoutY="504.0" text="0">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="btnSearch" layoutX="692.0" layoutY="501.0" onAction="#btnPlaceOrdrOnAction" style="-fx-background-color: #2ecc71;" text="Place Order" />
+
+        <ComboBox fx:id="cmbCustomerID" layoutX="220.0" layoutY="71.0" prefWidth="150.0" />
+        <Label fx:id="lblCustomerName" layoutX="410.0" layoutY="75.0" text="Customer" />
+        <Label fx:id="lblCustomerPhoneNumber" layoutX="487.0" layoutY="74.0" text="Phone Number" />
+
+        <ComboBox fx:id="cmbItemId" layoutX="220.0" layoutY="121.0" prefWidth="150.0" />
+        <Label fx:id="lblItemName" layoutX="410.0" layoutY="125.0" text="Item" />
+        <Label fx:id="lblStock" layoutX="582.0" layoutY="124.0" text="Stock" />
+        <Label fx:id="lblUnityPrice" layoutX="488.0" layoutY="125.0" text="Unit Price" />
+        <JFXTextField fx:id="txtQtyOnHand" layoutX="656.0" layoutY="120.0" prefHeight="26.0" prefWidth="81.0" promptText="Qty On Hand" />
+
+        <!-- Action buttons -->
+        <JFXButton fx:id="btnAdd" layoutX="480.0" layoutY="162.0" onAction="#btnAddToCartOnAction" text="Add to Cart" />
+        <JFXButton fx:id="btnClear" layoutX="713.0" layoutY="159.0" onAction="#btnClearOnAction" text="Clear" />
+        <JFXButton fx:id="btnDelete" layoutX="645.0" layoutY="161.0" onAction="#btnDeleteOnAction" text="Delete" />
+
+        <!-- Net total and place order -->
+        <Label fx:id="lblCM1" layoutX="223.0" layoutY="504.0" text="Net Total:">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btnSearch" layoutX="692.0" layoutY="501.0" onAction="#btnPlaceOrdrOnAction" style="-fx-background-color: #2ecc71;" text="Place Order" />
+        <Label fx:id="lblNetTotal" layoutX="292.0" layoutY="504.0" text="Net Total:">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+      <JFXButton fx:id="btnUpdate" layoutX="574.0" layoutY="162.0" onAction="#btnUpdateOnAction" text="Update" />
     </children>
 
     <stylesheets>
