@@ -14,5 +14,5 @@ public class Customer {
     private String name;
     private Integer phoneNumber;
     private String address;
-
+    private Double reward;
 }

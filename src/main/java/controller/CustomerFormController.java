@@ -75,6 +75,9 @@ public class CustomerFormController implements Initializable {
     @FXML
     private JFXTextField txtPhoneNumber;
 
+    @FXML
+    private TableColumn colPoints;
+
 
     CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
 
@@ -97,9 +100,9 @@ public class CustomerFormController implements Initializable {
                 txtId.getText(),
                 txtName.getText(),
                 Integer.parseInt(txtPhoneNumber.getText()),
-                txtAddress.getText()
+                txtAddress.getText(),
+                5.0
         );
-
 
         if (customerService.add(customer)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Customer Added!").show();
@@ -136,7 +139,9 @@ public class CustomerFormController implements Initializable {
                             txtId.getText(),
                             txtName.getText(),
                             Integer.parseInt(txtPhoneNumber.getText()),
-                            txtAddress.getText()
+                            txtAddress.getText(),
+                            0.0
+
                     )
             );
         } catch (SQLException e) {
@@ -168,11 +173,12 @@ public class CustomerFormController implements Initializable {
             throw new RuntimeException(e);
         }
 
-
+        System.out.println(getAll);
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+       colPoints.setCellValueFactory(new PropertyValueFactory<>("reward"));
 
         tblCustomerList.setItems(FXCollections.observableArrayList(getAll));
 
@@ -202,7 +208,6 @@ public class CustomerFormController implements Initializable {
     }
 
     public void btnAddOrderOnAction(ActionEvent actionEvent) {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/viewFxml/AddOrderForm.fxml"));
         Stage stage = new Stage();
         try {
@@ -213,7 +218,18 @@ public class CustomerFormController implements Initializable {
         stage.show();
         Stage currentStage = (Stage) ((JFXButton) actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
+    }
 
-
+    public void btnOderDetailsOnAction(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/viewFxml/OderDetails.fxml"));
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        Stage currentStage = (Stage) ((JFXButton) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 }

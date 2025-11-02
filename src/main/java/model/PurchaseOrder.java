@@ -7,14 +7,14 @@ import lombok.ToString;
 
 @Data
 @ToString
-@NoArgsConstructor
 @AllArgsConstructor
-public class CartTM {
-    private Integer oderId;
+@NoArgsConstructor
+public class PurchaseOrder {
+    private String orderId;
+    private String customerId;
     private String itemId;
+    private String customerName;
     private String itemName;
     private Integer qty;
-    private Double price;
-    private Integer qtyOnHand;
     private Double total;
 }

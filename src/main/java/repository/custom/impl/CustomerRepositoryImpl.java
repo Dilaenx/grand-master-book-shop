@@ -13,11 +13,12 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public boolean save(Customer customer) throws SQLException {
-         return CrudUtil.execute("Insert into customer VALUES(?,?,?,?)",
+         return CrudUtil.execute("Insert into customer VALUES(?,?,?,?,?)",
                 customer.getId(),
                 customer.getName(),
                 customer.getPhoneNumber(),
-                customer.getAddress());
+                customer.getAddress(),
+                customer.getReward());
 
     }
 
@@ -39,7 +40,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 resultSet.getString(1),
                 resultSet.getString(2),
                 resultSet.getInt(3),
-                resultSet.getString(4)
+                resultSet.getString(4),
+                resultSet.getDouble(5)
         );
     }
 
@@ -52,7 +54,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getInt(3),
-                    resultSet.getString(4)
+                    resultSet.getString(4),
+                    resultSet.getDouble(5)
             ));
 
         return customerList;
@@ -86,5 +89,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             ids.add(resultSet.getString("id"));
         }
         return ids;
+    }
+
+    @Override
+    public void SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException {
+        CrudUtil.execute("UPDATE customer SET reward = ? WHERE id = ?",
+                customerReward,
+                CustomerID
+        );
     }
 }

@@ -88,10 +88,14 @@ public class ItemFormController implements Initializable {
     }
 
     @FXML
-    public void btnCustomerManagement(ActionEvent actionEvent) throws IOException {
+    public void btnCustomerManagement(ActionEvent actionEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/viewFxml/customerFormFXml.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(loader.load()));
+        try {
+            stage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         stage.show();
         Stage currentStage = (Stage) ((JFXButton) actionEvent.getSource()).getScene().getWindow();
         currentStage.close();
@@ -104,7 +108,16 @@ public class ItemFormController implements Initializable {
     }
     @FXML
     void btnAddOrderOnAction(ActionEvent event) {
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/viewFxml/AddOrderForm.fxml"));
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        Stage currentStage = (Stage) ((JFXButton) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
@@ -143,7 +156,16 @@ public class ItemFormController implements Initializable {
 
     @FXML
     void btnOderDetailsOnAction(ActionEvent event) {
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/viewFxml/OderDetails.fxml"));
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        Stage currentStage = (Stage) ((JFXButton) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML

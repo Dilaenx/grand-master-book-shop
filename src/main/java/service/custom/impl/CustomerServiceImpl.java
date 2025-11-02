@@ -46,4 +46,8 @@ public class CustomerServiceImpl implements CustomerService {
         return repository.getAllIds();
     }
 
+    @Override
+    public void SaveCustomerReward(Double customerReward,String CustomerID) throws SQLException {
+        repository.SaveCustomerReward(customerReward, CustomerID);
+    }
 }

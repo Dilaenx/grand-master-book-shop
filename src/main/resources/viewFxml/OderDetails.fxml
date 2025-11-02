@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="519.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OderDetailsFormController">
+
+    <children>
+        <!-- Right side background -->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="540.0" layoutX="175.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="619.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#c3f2ff" offset="0.0" />
+                        <Stop color="#65c6f9" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+
+        <!-- Left panel -->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="540.0" layoutX="-5.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="205.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#001940" offset="0.0" />
+                        <Stop color="#275779" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+
+        <!-- Left side menu -->
+        <JFXButton layoutX="19.0" layoutY="83.0" onAction="#btnCustomerManagement" text="CUSTOMER MANAGEMENT" textAlignment="CENTER" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="121.0" onAction="#btnItemManagementForm" text="ITEM MANAGEMENT" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="161.0" onAction="#btnOderDetailsOnAction" text="PURCHASE ORDERS" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></JFXButton>
+        <JFXButton layoutX="19.0" layoutY="200.0" onAction="#btnCreateOrderOnAction" text="CREATE ORDER" textFill="WHITE" />
+        <JFXButton layoutX="56.0" layoutY="490.0" text="ABOUT" textFill="WHITE" />
+
+        <!-- Table -->
+        <TableView fx:id="tblOder" layoutX="205.0" layoutY="140.0" prefHeight="368.0" prefWidth="582.0">
+            <columns>
+                <TableColumn fx:id="colOderId" prefWidth="92.0" text="ORDER ID" />
+                <TableColumn fx:id="colCustomerId" prefWidth="96.7999267578125" text="CUSTOMER ID" />
+                <TableColumn fx:id="colCustomerName" prefWidth="124.80007934570312" text="NAME" />
+                <TableColumn fx:id="colItemName" prefWidth="112.800048828125" text="ITEM" />
+                <TableColumn fx:id="colItemQty" prefWidth="51.99993896484375" text="QTY" />
+            <TableColumn fx:id="colTotal" prefWidth="111.2000732421875" text="TOTAL" />
+            </columns>
+        </TableView>
+
+        <!-- Top labels and fields -->
+        <Label fx:id="lblCM" layoutX="417.0" layoutY="16.0" text="PURCHASE ORDER">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+
+        <ComboBox fx:id="cmbOrderId" layoutX="246.0" layoutY="75.0" prefWidth="150.0" />
+
+        <ComboBox fx:id="cmbItemid" layoutX="611.0" layoutY="75.0" prefWidth="150.0" />
+        <JFXButton fx:id="btnSearch" layoutX="705.0" layoutY="107.0" onAction="#btnRefreshOnAction" text="Refesh" />
+      <ComboBox fx:id="cmbCustomerId" layoutX="420.0" layoutY="75.0" prefWidth="150.0" />
+      <Label layoutX="248.0" layoutY="57.0" text="ORDER ID :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="421.0" layoutY="57.0" text="CUSTOMER ID :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="611.0" layoutY="57.0" text="ITEM ID :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="11.0" layoutY="25.0" text="THOGAKADE" textFill="#62d8fc" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Gadugi Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAmont" layoutX="476.0" layoutY="513.0" text="0.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+    </children>
+
+    <stylesheets>
+        <URL value="@../Style/style.css" />
+    </stylesheets>
+
+</AnchorPane>

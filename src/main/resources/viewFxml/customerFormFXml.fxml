@@ -66,18 +66,19 @@
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
       <JFXButton layoutX="19.0" layoutY="121.0" onAction="#btnItemManagementOnAction" text="ITEM MANAGEMENT" textFill="WHITE" />
-      <JFXButton layoutX="19.0" layoutY="161.0" text="ORDER DETAILS" textFill="WHITE" />
-      <JFXButton layoutX="19.0" layoutY="200.0" onAction="#btnAddOrderOnAction" text="ADD ORDER" textFill="WHITE" />
+      <JFXButton layoutX="19.0" layoutY="161.0" onAction="#btnOderDetailsOnAction" text="PURCHASE ORDERS" textFill="WHITE" />
+      <JFXButton layoutX="19.0" layoutY="200.0" onAction="#btnAddOrderOnAction" text="CREATE ORDER" textFill="WHITE" />
       <JFXButton layoutX="56.0" layoutY="490.0" text="ABOUT" textFill="WHITE" />
       <JFXTextField fx:id="txtName" layoutX="544.0" layoutY="85.0" promptText="Name" />
       <JFXTextField fx:id="txtPhoneNumber" layoutX="311.0" layoutY="123.0" promptText="Phone Number" />
       <JFXTextField fx:id="txtAddress" layoutX="544.0" layoutY="123.0" promptText="Address" />
       <TableView fx:id="tblCustomerList" layoutX="220.0" layoutY="214.0" prefHeight="302.0" prefWidth="554.0">
         <columns>
-            <TableColumn fx:id="colId" prefWidth="126.4000244140625" text="Id" />
-          <TableColumn fx:id="colName" prefWidth="127.20001220703125" text="Name" />
-          <TableColumn fx:id="colPhoneNumber" prefWidth="145.5999755859375" text="Phone Number" />
-            <TableColumn fx:id="colAddress" prefWidth="150.39996337890625" text="Address" />
+            <TableColumn fx:id="colId" prefWidth="83.20001220703125" text="Id" />
+          <TableColumn fx:id="colName" prefWidth="119.20001220703125" text="Name" />
+          <TableColumn fx:id="colPhoneNumber" prefWidth="125.59988403320312" text="Phone Number" />
+            <TableColumn fx:id="colAddress" prefWidth="112.00006103515625" text="Address" />
+            <TableColumn fx:id="colPoints" prefWidth="112.00006103515625" text="Points" />
         </columns>
       </TableView>
       <JFXButton fx:id="btnAdd" layoutX="311.0" layoutY="171.0" onAction="#btnAddOnAction" prefHeight="28.0" prefWidth="65.0" text="ADD" textAlignment="CENTER">
@@ -106,6 +107,11 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
+      <Label layoutX="9.0" layoutY="17.0" text="THOGAKADE" textFill="#62d8fc" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Gadugi Bold" size="29.0" />
+         </font>
+      </Label>
    </children>
 
       <stylesheets>

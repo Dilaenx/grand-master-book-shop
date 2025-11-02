@@ -66,8 +66,8 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXButton>
-        <JFXButton layoutX="19.0" layoutY="161.0" onAction="#btnOderDetailsOnAction" text="ORDER DETAILS" textFill="WHITE" />
-        <JFXButton layoutX="19.0" layoutY="200.0" onAction="#btnAddOrderOnAction" text="ADD ORDER" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="161.0" onAction="#btnOderDetailsOnAction" text="PURCHASE ORDERS" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="200.0" onAction="#btnAddOrderOnAction" text="CREATE ORDER" textFill="WHITE" />
         <JFXButton layoutX="56.0" layoutY="490.0" text="ABOUT" textFill="WHITE" />
         <JFXTextField fx:id="txtName" layoutX="544.0" layoutY="85.0" promptText="Name" />
         <JFXTextField fx:id="txtQty" layoutX="311.0" layoutY="123.0" promptText="Qty" />
@@ -106,6 +106,11 @@
             <font>
                 <Font name="System Bold" size="12.0" />
             </font></JFXButton>
+      <Label layoutX="12.0" layoutY="22.0" text="THOGAKADE" textFill="#62d8fc" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Gadugi Bold" size="29.0" />
+         </font>
+      </Label>
     </children>
 
     <stylesheets>

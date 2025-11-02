@@ -17,7 +17,7 @@
 
     <children>
         <!-- Right side background -->
-        <Rectangle arcHeight="5.0" arcWidth="5.0" height="540.0" layoutX="175.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="619.0">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="536.0" layoutX="175.0" stroke="BLACK" strokeType="INSIDE" width="619.0">
             <fill>
                 <LinearGradient endX="1.0" endY="1.0">
                     <stops>
@@ -41,10 +41,10 @@
         </Rectangle>
 
         <!-- Left side menu -->
-        <JFXButton layoutX="19.0" layoutY="83.0" onAction="#btnCustomerManagement" text="CUSTOMER MANAGEMENT" textAlignment="CENTER" textFill="WHITE" />
-        <JFXButton layoutX="19.0" layoutY="121.0" onAction="#btnItemManagementForm" text="ITEM MANAGEMENT" textFill="WHITE" />
-        <JFXButton layoutX="19.0" layoutY="161.0" onAction="#btnOderDetailsOnAction" text="PURCHASE ORDER" textFill="WHITE" />
-        <JFXButton layoutX="19.0" layoutY="200.0" onAction="#btnAddOrderOnAction" text="CREATE ORDER" textFill="WHITE">
+        <JFXButton layoutX="19.0" layoutY="93.0" onAction="#btnCustomerManagement" text="CUSTOMER MANAGEMENT" textAlignment="CENTER" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="131.0" onAction="#btnItemManagementForm" text="ITEM MANAGEMENT" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="171.0" onAction="#btnOderDetailsOnAction" text="PURCHASE ORDERS" textFill="WHITE" />
+        <JFXButton layoutX="19.0" layoutY="210.0" onAction="#btnAddOrderOnAction" text="CREATE ORDER" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
@@ -63,21 +63,21 @@
         </TableView>
 
         <!-- Top labels and fields -->
-        <Label fx:id="lblCM" layoutX="387.0" layoutY="11.0" text="CREATE ORDER FORM">
+        <Label fx:id="lblCM" layoutX="399.0" layoutY="11.0" text="CREATE ORDER FORM">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>
         </Label>
 
-        <ComboBox fx:id="cmbCustomerID" layoutX="220.0" layoutY="71.0" prefWidth="150.0" />
-        <Label fx:id="lblCustomerName" layoutX="410.0" layoutY="75.0" text="Customer" />
-        <Label fx:id="lblCustomerPhoneNumber" layoutX="487.0" layoutY="74.0" text="Phone Number" />
+        <ComboBox fx:id="cmbCustomerID" layoutX="220.0" layoutY="83.0" prefWidth="150.0" />
+        <Label fx:id="lblCustomerName" layoutX="410.0" layoutY="87.0" text="Customer" />
+        <Label fx:id="lblCustomerPhoneNumber" layoutX="487.0" layoutY="86.0" text="Phone Number" />
 
-        <ComboBox fx:id="cmbItemId" layoutX="220.0" layoutY="121.0" prefWidth="150.0" />
-        <Label fx:id="lblItemName" layoutX="410.0" layoutY="125.0" text="Item" />
-        <Label fx:id="lblStock" layoutX="582.0" layoutY="124.0" text="Stock" />
-        <Label fx:id="lblUnityPrice" layoutX="488.0" layoutY="125.0" text="Unit Price" />
-        <JFXTextField fx:id="txtQtyOnHand" layoutX="656.0" layoutY="120.0" prefHeight="26.0" prefWidth="81.0" promptText="Qty On Hand" />
+        <ComboBox fx:id="cmbItemId" layoutX="220.0" layoutY="125.0" prefWidth="150.0" />
+        <Label fx:id="lblItemName" layoutX="410.0" layoutY="129.0" text="Item" />
+        <Label fx:id="lblStock" layoutX="582.0" layoutY="128.0" text="Stock" />
+        <Label fx:id="lblUnityPrice" layoutX="488.0" layoutY="129.0" text="Unit Price" />
+        <JFXTextField fx:id="txtQtyOnHand" layoutX="656.0" layoutY="124.0" prefHeight="26.0" prefWidth="81.0" promptText="Qty On Hand" />
 
         <!-- Action buttons -->
         <JFXButton fx:id="btnAdd" layoutX="480.0" layoutY="162.0" onAction="#btnAddToCartOnAction" text="Add to Cart" />
@@ -91,12 +91,53 @@
             </font>
         </Label>
         <JFXButton fx:id="btnSearch" layoutX="692.0" layoutY="501.0" onAction="#btnPlaceOrdrOnAction" style="-fx-background-color: #2ecc71;" text="Place Order" />
-        <Label fx:id="lblNetTotal" layoutX="292.0" layoutY="504.0" text="Net Total:">
+        <Label fx:id="lblNetTotal" layoutX="292.0" layoutY="504.0" text="0.0">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
       <JFXButton fx:id="btnUpdate" layoutX="574.0" layoutY="162.0" onAction="#btnUpdateOnAction" text="Update" />
+      <Label fx:id="lblDate" layoutX="702.0" layoutY="14.0" text="2024/02/06">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="702.0" layoutY="33.0" text="19.23:00">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate1" layoutX="222.0" layoutY="42.0" text="Oder ID:" />
+      <Label fx:id="lblOderId" layoutX="275.0" layoutY="42.0" text="1001">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnReward" layoutX="617.0" layoutY="502.0" onAction="#btnRewardOnAction" style="-fx-background-color: #f1c40f;" text="0.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lblCM11" layoutX="563.0" layoutY="505.0" text="Points :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCustomerName1" layoutX="221.0" layoutY="67.0" text="Customer Id :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCustomerName11" layoutX="221.0" layoutY="109.0" text="Item Id :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="22.0" text="THOGAKADE" textFill="#62d8fc" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Gadugi Bold" size="29.0" />
+         </font>
+      </Label>
     </children>
 
     <stylesheets>
