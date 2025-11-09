@@ -5,10 +5,12 @@ import db.DBConnection;
 import model.CartTM;
 import model.Item;
 import model.OderDetails;
+import repository.RepositoryFactory;
 import repository.custom.ItemRepository;
 import repository.custom.OderDetailsRepository;
 import repository.custom.OrderRepository;
 import util.CrudUtil;
+import util.RepositoryType;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OderRepositoryImpl implements OrderRepository {
-    ItemRepository
+    ItemRepository itemRepository= RepositoryFactory.getInstance().getRepository(RepositoryType.ITEM);
     @Override
     public Integer oderId() throws SQLException {
 

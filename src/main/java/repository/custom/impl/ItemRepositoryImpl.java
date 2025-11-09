@@ -1,5 +1,6 @@
 package repository.custom.impl;
 
+import model.CartTM;
 import model.Item;
 import repository.custom.ItemRepository;
 import util.CrudUtil;
@@ -90,4 +91,17 @@ public class ItemRepositoryImpl implements ItemRepository {
         return ids;
     }
 
+    @Override
+    public boolean updateStock(List<CartTM> cartTMList) throws SQLException {
+        for(CartTM cartTM: cartTMList){
+            boolean isUpdatestock= updateStock(cartTM);
+            if(isUpdatestock)return false;
+        }
+        return true;
+    }
+    public boolean updateStock(CartTM cartTM) throws SQLException {
+        return CrudUtil.execute("UPDATE ITEM SET qtyOnHand = qtyOnHand -? WHERE Code =?",
+                cartTM.getQtyOnHand(),
+                cartTM.getItemId());
+    }
 }
