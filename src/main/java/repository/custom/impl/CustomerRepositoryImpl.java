@@ -1,5 +1,6 @@
 package repository.custom.impl;
 
+import javafx.scene.control.Alert;
 import model.Customer;
 import repository.custom.CustomerRepository;
 import util.CrudUtil;
@@ -13,10 +14,31 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public boolean save(Customer customer) throws SQLException {
+        try {
+           Integer phoneNumber =Integer.parseInt(String.valueOf(customer.getPhone_number()));
+            if(String.valueOf(phoneNumber).length()>10){
+                new Alert(Alert.AlertType.ERROR, "Enter Valid Phone Number!").show();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            new Alert(Alert.AlertType.ERROR, "Enter Valid Phone Number!").show();
+            return false;
+        }
+        List<Customer> customerList = getAll();
+        for (Customer sqlCustomer :customerList ){
+            if(sqlCustomer.getId().equals(customer.getId())){
+                new Alert(Alert.AlertType.ERROR, "This Id already used!").show();
+            return false;
+            }
+            if(sqlCustomer.getPhone_number().equals(customer.getPhone_number())){
+                new Alert(Alert.AlertType.ERROR, "This Phone Number already used!").show();
+                return false;
+            }
+        }
          return CrudUtil.execute("Insert into customer VALUES(?,?,?,?,?)",
                 customer.getId(),
                 customer.getName(),
-                customer.getPhoneNumber(),
+                customer.getPhone_number(),
                 customer.getAddress(),
                 customer.getReward());
 
@@ -74,9 +96,9 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public boolean updateById(Customer customer) throws SQLException {
         return CrudUtil.execute(
-                "UPDATE customer SET name = ?, phoneNumber = ?, address = ? WHERE id = ?",
+                "UPDATE customer SET name = ?, phone_number = ?, address = ? WHERE id = ?",
                 customer.getName(),
-                customer.getPhoneNumber(),
+                customer.getPhone_number(),
                 customer.getAddress(),
                 customer.getId());
     }

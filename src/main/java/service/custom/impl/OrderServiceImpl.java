@@ -21,7 +21,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean saveOderDetails(OderDetails oderDetails) throws SQLException {
-        System.out.println("order details"+oderDetails);
+        System.out.println("order details ="+oderDetails);
         return orderRepository.save(oderDetails);
 
     }

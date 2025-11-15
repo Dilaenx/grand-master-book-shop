@@ -20,7 +20,7 @@ public class OderDetailsImpl {
         return true;
     }
     public boolean saveOrderDetails(CartTM cartTM) throws SQLException {
-        return CrudUtil.execute("INSERT INTO orderDetails VALUES(?,?,?,?)",
+        return CrudUtil.execute("INSERT INTO cart_tm VALUES(?,?,?)",
                 cartTM.getOderId(),
                 cartTM.getItemId(),
                 cartTM.getQtyOnHand()

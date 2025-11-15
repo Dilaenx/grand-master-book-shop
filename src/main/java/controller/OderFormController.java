@@ -19,6 +19,7 @@ import model.CartTM;
 import model.Customer;
 import model.Item;
 import model.OderDetails;
+import org.w3c.dom.ls.LSOutput;
 import service.ServiceFactory;
 import service.custom.CustomerService;
 import service.custom.ItemService;
@@ -142,7 +143,7 @@ public class OderFormController implements Initializable {
         cmbCustomerID.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             if(t1!=null) {
                 setTextCustomerLbl((String) t1);
-                btnReward.setText(getCustomerReward()+"");
+                btnReward.setText(String.format("%.2f", getCustomerReward()));
             }
             if(cmbCustomerID.getValue()!=null){
                 itemCler();
@@ -203,8 +204,6 @@ public class OderFormController implements Initializable {
 
 
     }
-
-
     private void setTextCustomerLbl(String id){
         Customer customer;
         try {
@@ -214,7 +213,7 @@ public class OderFormController implements Initializable {
         }
 
         lblCustomerName.setText(customer.getName());
-        lblCustomerPhoneNumber.setText(customer.getPhoneNumber()+"");
+        lblCustomerPhoneNumber.setText(customer.getPhone_number()+"");
     }
     private void setItemCustomerLbl(String id){
         Item item = new Item();
@@ -225,17 +224,12 @@ public class OderFormController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
         for (CartTM cartItem : cartTMSList) {
             if (cartItem.getItemId().equals(id)) {
                 useStock = Integer.valueOf((cartItem.getQty()));
                 break;
             }
         }
-
-
-
         lblItemName.setText(item.getName());
         lblStock.setText(item.getQty()-useStock+"");
         lblUnityPrice.setText(item.getUnitPrice()+"");
@@ -409,7 +403,9 @@ public class OderFormController implements Initializable {
         String placeOderTime=lblTime.getText();
         System.out.println(placeOderDate+"and"+placeOderTime);
         try {
+            System.out.println("oderController.java");
             customerAdd=orderService.saveOderDetails(
+
                     new OderDetails(
                            lblOderId.getText(),
                            (cmbCustomerID.getValue()==null)? "Guest":cmbCustomerID.getValue(),

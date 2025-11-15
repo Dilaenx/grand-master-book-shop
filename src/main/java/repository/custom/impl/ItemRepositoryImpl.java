@@ -95,12 +95,13 @@ public class ItemRepositoryImpl implements ItemRepository {
     public boolean updateStock(List<CartTM> cartTMList) throws SQLException {
         for(CartTM cartTM: cartTMList){
             boolean isUpdatestock= updateStock(cartTM);
-            if(isUpdatestock)return false;
+            System.out.println("done");
+            if(!isUpdatestock)return false;
         }
         return true;
     }
     public boolean updateStock(CartTM cartTM) throws SQLException {
-        return CrudUtil.execute("UPDATE ITEM SET qtyOnHand = qtyOnHand -? WHERE Code =?",
+        return CrudUtil.execute("UPDATE ITEM SET qty = qty - ? WHERE id = ?",
                 cartTM.getQtyOnHand(),
                 cartTM.getItemId());
     }

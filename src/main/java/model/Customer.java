@@ -12,7 +12,7 @@ import lombok.ToString;
 public class Customer {
     private String id;
     private String name;
-    private Integer phoneNumber;
+    private Integer phone_number;
     private String address;
     private Double reward;
 }

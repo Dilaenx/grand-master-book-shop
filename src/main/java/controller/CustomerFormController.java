@@ -87,7 +87,7 @@ public class CustomerFormController implements Initializable {
         tblCustomerList.getSelectionModel().selectedItemProperty().addListener((observableValue, customer, t1) -> {
             txtName.setText(t1.getName());
             txtId.setText(t1.getId());
-            txtPhoneNumber.setText(t1.getPhoneNumber() + "");
+            txtPhoneNumber.setText(t1.getPhone_number() + "");
             txtAddress.setText(t1.getAddress());
 
 
@@ -160,7 +160,7 @@ public class CustomerFormController implements Initializable {
         }
         txtName.setText(customer.getName());
         txtAddress.setText(customer.getAddress());
-        txtPhoneNumber.setText(customer.getPhoneNumber().toString());
+        txtPhoneNumber.setText(customer.getPhone_number().toString());
         loadTable();
 
     }
@@ -176,7 +176,7 @@ public class CustomerFormController implements Initializable {
         System.out.println(getAll);
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
        colPoints.setCellValueFactory(new PropertyValueFactory<>("reward"));
 
